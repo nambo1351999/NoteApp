@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.phanphuongnam.noteapp.feature_note.presentation.add_edit_note.AddEditNoteScreen
 import com.phanphuongnam.noteapp.feature_note.presentation.notes.NotesScreen
+import com.phanphuongnam.noteapp.feature_note.presentation.search.SearchScreen
 import com.phanphuongnam.noteapp.feature_note.presentation.util.Screen
 import com.phanphuongnam.noteapp.ui.theme.NoteAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NoteAppTheme {
                 Surface(
-                    color = Color.Blue
+                    color = Color.White
                 ) {
                     val navController = rememberNavController()
                     NavHost(
@@ -59,6 +60,9 @@ class MainActivity : ComponentActivity() {
                                 navController = navController,
                                 noteColor = color
                             )
+                        }
+                        composable(route = Screen.SearchScreen.route) {
+                            SearchScreen(navController = navController)
                         }
                     }
                 }

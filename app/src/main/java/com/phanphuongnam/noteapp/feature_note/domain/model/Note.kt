@@ -7,18 +7,19 @@ import com.phanphuongnam.noteapp.ui.theme.LightGreen
 import com.phanphuongnam.noteapp.ui.theme.RedOrange
 import com.phanphuongnam.noteapp.ui.theme.RedPink
 import com.phanphuongnam.noteapp.ui.theme.Violet
+import androidx.appsearch.app.AppSearchSchema
 
 @Entity
 data class Note(
+    @PrimaryKey val id: Int? = null,
     val title: String,
     val content: String,
     val timestamp: Long,
     val color: Int,
-    @PrimaryKey val id: Int? = null
 ) {
     companion object {
         val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
     }
 }
 
-class InvalidNoteException(message: String): Exception(message)
+class InvalidNoteException(message: String) : Exception(message)
